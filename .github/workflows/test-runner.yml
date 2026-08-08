@@ -1,19 +1,10 @@
-name: Test Self Hosted Runner
-
-on:
-  workflow_dispatch:
-
 jobs:
   build:
-    runs-on: gh-runner
+    runs-on: [self-hosted, Linux, X64]
 
     steps:
-      - name: Test runner
+      - name: Test
         run: |
-          echo "Runner is working!"
-          echo "Hostname:"
+          echo "Runner picked up the job"
           hostname
-          echo "User:"
           whoami
-          echo "OS:"
-          uname -a
