@@ -1,0 +1,16 @@
+name: Test Runner
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: gh-runner
+
+    steps:
+      - name: Test runner
+        run: |
+          echo "Runner is working"
+          hostname
+          whoami
+          uname -a
