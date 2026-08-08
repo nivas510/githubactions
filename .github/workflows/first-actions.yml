@@ -1,28 +1,13 @@
-name: My First GitHub Actions
-
-on: [push]
-
 jobs:
   build:
-    runs-on: gh-runner
-
-    strategy:
-      matrix:
-        python-version: [3.8, 3.9]
+    runs-on: [self-hosted, Linux, X64]
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: ${{ matrix.python-version }}
+      - uses: actions/checkout@v4
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install pytest
+      - name: Test
+        run: |
+          echo "Runner is working"
+          hostname
+          whoami
 
-    - name: Run tests
-      run: |
-        cd src
-        python -m pytest addition.py
