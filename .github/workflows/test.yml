@@ -1,0 +1,10 @@
+jobs:
+  build:
+    runs-on: [self-hosted, Linux, X64]
+
+    steps:
+      - name: Test
+        run: |
+          echo "Runner picked up the job"
+          hostname
+          whoami
